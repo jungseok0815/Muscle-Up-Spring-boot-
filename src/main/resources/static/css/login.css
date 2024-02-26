@@ -1,0 +1,71 @@
+@charset "UTF-8";
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* 100% of viewport height */
+}
+.member-area{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+}
+.title-area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5%;
+    font-size: 15pt;
+}
+.login-area{
+    width: 30%;
+}
+.join-area{
+    display: none;
+    width: 30%;
+    margin-left: 5%;
+}
+.btn{
+    width: 100%;
+}
+.entire{
+    margin-top: 10%;
+}
+.login-btn{
+    margin-top: 15px;
+}
+.join-none-area{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.join-none-area > button{
+    width: 30%;
+}
+.login-none-area{
+    display: none;
+    width: 30%;
+
+}
+.login-none-area > button{
+    width: 30%;
+}
+.address-area{
+    display: flex;
+    margin-bottom:  5%;
+}
+
+#sample5_address{
+    width: 70%;
+}
+#search-address{
+    width: 30%;
+}
+
+
