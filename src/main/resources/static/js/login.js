@@ -38,27 +38,30 @@ window.onload = function () {
             joinCheckBox.blankCheck = false
         else
             joinCheckBox.blankCheck = true
-
         if(forInCheck(joinCheckBox)){
             data = {
-                userID : document.querySelector("#floatingInput2"),
+                userId : document.querySelector("#floatingInput2").value,
                 userPwd : regPwd.value,
                 userPhone : checkPhone.value,
                 userEmail : checkEmail.value,
                 userAddress : addressInupt.value
 
             }
-            console.log(data)
-            loginAjax.joinMemeberAjax(data,reloadUrl)
+            userAjax.joinMemeberAjax(data,reloadUrl)
         }
         else{
             console.log("회원가입 실패")
         }
     })
 
+    reloadUrl = (joinResult) =>{
+        location.reload()
+        joinResult === "joinOk" ? console.log("회원가입 성공") : console.log("회원가입 Error") 
+    }
+
     //비밀번호 유효성 검사
     const regPwd = document.querySelector(".join-area > .form-floating > .password")
-    regPwd.addEventListener("keyup", () =>{
+    regPwd.addEventListener("keyup", () =>{ 
         let reg = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,15}$/
         if(reg.test(regPwd.value)){
             regPwd.classList.remove("is-invalid")
@@ -109,13 +112,13 @@ window.onload = function () {
 
     //주소를 검색하는 API
     const searchAddress = document.querySelector("#search-address")
-    const addressInupt =  document.getElementById("sample5_address").value
+    const addressInupt =  document.getElementById("sample5_address")
     searchAddress.addEventListener("click", () =>{
         new daum.Postcode({
             oncomplete: function(data) {
                 var addr = data.address; // 최종 주소 변수
                 // 주소 정보를 해당 필드에 넣는다.
-                addressInupt = addr;
+                addressInupt.value = addr;
                 // 주소로 상세 정보를 검색
             }
         }).open();

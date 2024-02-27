@@ -1,12 +1,11 @@
 const userAjax = {
     joinMemeberAjax : (data,callback) => {
         $.ajax({
-            url : "joinMember",
+            url : "userInfo",
             type : "post",
-            data ,
-            success: (data) => {
-                console.log(data)
-                callback()
+            data,
+            success: (reuslt) => {
+                callback(reuslt)
             },
             error: (err) => {
                 console.log(err)
